@@ -29,8 +29,10 @@ const HomePage = () => {
 
 
     <div>
+
+
       <div
-        className="jumbotron jumbotron-fluid"
+        className="jumbotron jumbotron-fluid px-16"
         id="banner"
         style={{ backgroundImage: "url(img/banner-bk.jpg)" }}
       >
@@ -52,23 +54,20 @@ const HomePage = () => {
             data-aos-easing="linear"
             data-aos-duration={1000}
             data-aos-once="true"
-            className="display-3 text-white font-weight-bold my-5"
+            className="display-3 text-white font-weight-bold mt-5"
           >
-            A New Way
+            <span className='text-7xl'>Welcome to EjaratPro</span>
             <br />
-            To Start Business
+            <span className='text-3xl'>Professional way to manage your Property</span>
           </h1>
           <p
             data-aos="fade"
             data-aos-easing="linear"
             data-aos-duration={1000}
             data-aos-once="true"
-            className="lead text-white my-4"
+            className="lead text-white my-2 text-lg"
           >
-            Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum
-            duo.
-            <br /> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae
-            admodum voluptatum per.
+            Whether you are a real estate owner or an office to manage the real estate of others, you can easily start working on the system and ensure that your real estate is managed in an optimal way
           </p>
           <a
             href="#"
@@ -82,11 +81,13 @@ const HomePage = () => {
           </a>
         </div>
       </div>
-      <div className="container my-5 py-2">
+
+
+      <div className="container bg-white text-black py-16">
         <h2 className="text-center font-weight-bold my-5">
-          Smartest protection for your site
+        Main Features
         </h2>
-        <div className="row">
+        <div className="row px-14">
           <div
             data-aos="fade-up"
             data-aos-delay={0}
@@ -99,8 +100,8 @@ const HomePage = () => {
               alt="Anti-spam"
               className="mx-auto"
             />
-            <h4>Anti-spam</h4>
-            <p>Lorem ipsum dolor sit amet porro his no his deleniti</p>
+            <h4 className='font-semibold text-2xl mb-1'>Accessibility</h4>
+            <p className='w-72 mx-auto text-base'>Your data, records and daily operations will be stored on Cloud where you can access it whenever you want and wherever you are.</p>
           </div>
           <div
             data-aos="fade-up"
@@ -114,8 +115,8 @@ const HomePage = () => {
               alt="Phishing Detect"
               className="mx-auto"
             />
-            <h4>Phishing Detect</h4>
-            <p>Ne error antiopam usu. Sed vocen concludaturque ea</p>
+            <h4 className='font-semibold text-2xl mb-1'>Cost Saving</h4>
+            <p className='w-72 mx-auto text-base'>Save time -money and effort , pay as you grow on monthly basis</p>
           </div>
           <div
             data-aos="fade-up"
@@ -129,12 +130,14 @@ const HomePage = () => {
               alt="Smart Scan"
               className="mx-auto"
             />
-            <h4>Smart Scan</h4>
-            <p>Et usu ocurreret elaboraret doctus prodesse assueverit.</p>
+            <h4 className='font-semibold text-2xl mb-1'>VAT Compiance</h4>
+            <p className='w-72 mx-auto text-base'>Issue Vat compatiple invoice , collect VAT in advance or distribute it on payment as per your client requiremnt or your internal policy.</p>
           </div>
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid feature" id="feature-first">
+
+
+      <div className="jumbotron text-black px-16 jumbotron-fluid feature" id="feature-first">
         <div className="container my-5">
           <div className="row justify-content-between text-center text-md-left">
             <div
@@ -143,13 +146,11 @@ const HomePage = () => {
               data-aos-once="true"
               className="col-md-6"
             >
-              <h2 className="font-weight-bold">Take a look inside</h2>
-              <p className="my-4">
-                Te iisque labitur eos, nec sale argumentum scribentur no,
-                <br /> augue disputando in vim. Erat fugit sit at, ius lorem
-                deserunt deterruisset no.
+              <h2 className="font-weight-bold">Easy-to-Use</h2>
+              <p className="my-4 text-base">
+              Ejarat Pro is simple, easy-to-learn and easy to use. It provides a streamlined way to manage your properties, enabling you and your staff a quite easy search and navigation.
               </p>
-              <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-blue">
+              <a href="#" className="btn font-weight-bold atlas-cta cta-blue">
                 Learn More
               </a>
             </div>
@@ -168,7 +169,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid feature" id="feature-last">
+
+
+      <div className="jumbotron text-black jumbotron-fluid feature" id="feature-last">
         <div className="container">
           <div className="row justify-content-between text-center text-md-left">
             <div
@@ -177,12 +180,11 @@ const HomePage = () => {
               data-aos-once="true"
               className="col-md-6 flex-md-last"
             >
-              <h2 className="font-weight-bold">Safe and reliable</h2>
-              <p className="my-4">
-                Duo suas detracto maiestatis ad, commodo lucilius invenire nec ad,
-                <br /> eum et oratio disputationi. Falli lobortis his ad
+              <h2 className="font-weight-bold mt-4">Safe and reliable</h2>
+              <p className="mt-3 text-base">
+              Your information and data to which you solely have access are fully encrypted
               </p>
-              <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-blue">
+              <a href="#" className="btn mt-3 font-weight-bold atlas-cta cta-blue">
                 Learn More
               </a>
             </div>
@@ -201,11 +203,12 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="container my-5 py-2" id="price-table">
-        <h2 className="text-center font-weight-bold d-block mb-3">
+
+      <div className="container px-14 bg-white text-black py-9" id="price-table">
+        <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
           Check our pricing
         </h2>
-        <div className="row">
+        <div className="row font-semibold">
           <div
             data-aos="fade-right"
             data-aos-delay={200}
@@ -213,11 +216,11 @@ const HomePage = () => {
             data-aos-once="true"
             className="col-md-4 text-center py-4 mt-5"
           >
-            <h4 className="my-4">STARTUP</h4>
+            <h4 className="my-4 text-2xl">STARTUP</h4>
             <p className="font-weight-bold">
               $ <span className="display-2 font-weight-bold">0</span> / MO.
             </p>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled flex-col space-y-1 mt-3">
               <li>Up to 5 Documents</li>
               <li>Up to 3 Reviews</li>
               <li>5 team Members</li>
@@ -231,14 +234,14 @@ const HomePage = () => {
             data-aos="fade-up"
             data-aos-duration={1000}
             data-aos-once="true"
-            className="col-md-4 text-center py-4 mt-5 rounded"
+            className="col-md-4 h-[30rem] text-center py-4 mt-5 rounded"
             id="price-table__premium"
           >
-            <h4 className="my-4">PREMIUM</h4>
+            <h4 className="my-4 text-2xl">PREMIUM</h4>
             <p className="font-weight-bold">
               $ <span className="display-2 font-weight-bold">10</span> / MO.
             </p>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled flex-col space-y-1 mt-3">
               <li>Up to 15 Documents</li>
               <li>Up to 10 Reviews</li>
               <li>25 team Members</li>
@@ -255,11 +258,11 @@ const HomePage = () => {
             data-aos-once="true"
             className="col-md-4 text-center py-4 mt-5"
           >
-            <h4 className="my-4">PROFESSIONAL</h4>
+            <h4 className="my-4 text-2xl">PROFESSIONAL</h4>
             <p className="font-weight-bold">
               $ <span className="display-2 font-weight-bold">30</span> / MO.
             </p>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled flex-col space-y-1 mt-3">
               <li>Unlimited Documents</li>
               <li>Unlimited Reviews</li>
               <li>Unlimited Members</li>
@@ -271,7 +274,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid">
+
+      <div className="jumbotron px-10 jumbotron-fluid">
         <div className="container">
           <div className="row">
             <div className="col-sm-4 col-md-2 py-2 align-self-center">
@@ -295,8 +299,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
       <div
-        className="jumbotron jumbotron-fluid"
+        className="jumbotron px-16 jumbotron-fluid"
         id="contact"
         style={{ backgroundImage: "url(img/contact-bk.jpg)" }}
       >
@@ -304,14 +309,14 @@ const HomePage = () => {
           <div className="row justify-content-between">
             <div className="col-md-6 text-white">
               <h2 className="font-weight-bold">Contact Us</h2>
-              <p className="my-4">
-                Te iisque labitur eos, nec sale argumentum scribentur,
-                <br /> augue disputando in vim. Erat fugit sit at, ius lorem.
+              <p className="my-3">
+                We are ere to help to manage your property and organize your work , 
+                <br /> contact us and we are ready to help you.
               </p>
               <ul className="list-unstyled">
-                <li>Email : company_email@com</li>
-                <li>Phone : 361-688-5824</li>
-                <li>Address : 4826 White Avenue, Corpus Christi, Texas</li>
+                <li>Email : Ejaratpro@gmail.com</li>
+                <li>Phone : 0553114030</li>
+                <li>Address : Ajman</li>
               </ul>
             </div>
             <div className="col-md-6">
@@ -337,7 +342,7 @@ const HomePage = () => {
                 </div>
                 <button
                   type="submit"
-                  className="btn font-weight-bold atlas-cta atlas-cta-wide cta-green my-3"
+                  className="btn bg-[#00ffad] font-semibold atlas-cta atlas-cta-wide cta-green my-3"
                 >
                   Submit
                 </button>
@@ -375,7 +380,6 @@ const HomePage = () => {
     </div>
 
     <Script src="js/aos.js"></Script>
-
   
     </>
 
