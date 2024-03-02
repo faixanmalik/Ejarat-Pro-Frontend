@@ -78,7 +78,7 @@ const HomePage = () => {
             data-aos-easing="linear"
             data-aos-duration={1000}
             data-aos-once="true"
-            className="lead text-white my-2 text-lg"
+            className="lead text-white my-2 tracking-tight text-lg"
           >
             Whether you are a real estate owner or an office to manage the real estate of others, you can easily start working on the system and ensure that your real estate is managed in an optimal way
           </p>
@@ -114,7 +114,7 @@ const HomePage = () => {
               className="mx-auto"
             />
             <h4 className='font-semibold text-2xl mb-1'>Accessibility</h4>
-            <p className='w-72 mx-auto text-base'>Your data, records and daily operations will be stored on Cloud where you can access it whenever you want and wherever you are.</p>
+            <p className='w-72 mx-auto tracking-tight text-base'>Your data, records and daily operations will be stored on Cloud where you can access it whenever you want and wherever you are.</p>
           </div>
           <div
             data-aos="fade-up"
@@ -129,7 +129,7 @@ const HomePage = () => {
               className="mx-auto"
             />
             <h4 className='font-semibold text-2xl mb-1'>Cost Saving</h4>
-            <p className='w-72 mx-auto text-base'>Save time -money and effort , pay as you grow on monthly basis</p>
+            <p className='w-72 mx-auto tracking-tight text-base'>Save time -money and effort , pay as you grow on monthly basis</p>
           </div>
           <div
             data-aos="fade-up"
@@ -144,7 +144,7 @@ const HomePage = () => {
               className="mx-auto"
             />
             <h4 className='font-semibold text-2xl mb-1'>VAT Compiance</h4>
-            <p className='w-72 mx-auto text-base'>Issue Vat compatiple invoice , collect VAT in advance or distribute it on payment as per your client requiremnt or your internal policy.</p>
+            <p className='w-72 mx-auto tracking-tight text-base'>Issue Vat compatiple invoice , collect VAT in advance or distribute it on payment as per your client requiremnt or your internal policy.</p>
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@ const HomePage = () => {
               className="col-md-6"
             >
               <h2 className="font-weight-bold">Easy-to-Use</h2>
-              <p className="my-4 text-base">
+              <p className="my-4 text-base tracking-tight">
               Ejarat Pro is simple, easy-to-learn and easy to use. It provides a streamlined way to manage your properties, enabling you and your staff a quite easy search and navigation.
               </p>
               <a href="#" className="btn font-weight-bold atlas-cta cta-blue">
@@ -194,7 +194,7 @@ const HomePage = () => {
               className="col-md-6 flex-md-last"
             >
               <h2 className="font-weight-bold mt-4">Safe and reliable</h2>
-              <p className="mt-3 text-base">
+              <p className="mt-3 text-base tracking-tight">
               Your information and data to which you solely have access are fully encrypted
               </p>
               <a href="#" className="btn mt-3 font-weight-bold atlas-cta cta-blue">
@@ -322,7 +322,7 @@ const HomePage = () => {
           <div className="row justify-content-between">
             <div className="col-md-6 text-white">
               <h2 className="font-weight-bold">Contact Us</h2>
-              <p className="my-3">
+              <p className="my-3 tracking-tight">
                 We are ere to help to manage your property and organize your work , 
                 <br /> contact us and we are ready to help you.
               </p>
