@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import AOS from "aos";
+import Link from 'next/link';
 
 const HomePage = () => {
 
@@ -9,6 +10,15 @@ const HomePage = () => {
     AOS.init({
     });
   }, []);
+
+  const pages = [
+    { name: 'Features', href: '/features' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Contact Us', href: '/contact' },
+    { name: 'Log In', href: '/login', status: true },
+    { name: 'Join Us', href: '/joinUs', status: true },
+    { name: 'Arabic', href: '/arabic' },
+  ]
 
   return (
     <>
@@ -30,7 +40,6 @@ const HomePage = () => {
 
     <div>
 
-
       <div
         className="jumbotron jumbotron-fluid px-16"
         id="banner"
@@ -38,15 +47,19 @@ const HomePage = () => {
       >
         <div className="container text-center text-md-left">
           <header>
-            <div className="row justify-content-between">
-              <div className="col-2">
-                <img src="img/logo.png" alt="logo" />
-              </div>
-              <div className="col-6 align-self-center text-right">
-                <a href="#" className="text-white lead">
-                  Get Early Access
-                </a>
-              </div>
+
+            <div className='flex space-x-3 justify-center w-full items-center px-7 py-3'>
+
+              {pages.map((item, index)=>{
+                return <Link
+                key={index} 
+                href={item.href}
+                className={`rounded-2xl hover:bg-[#00ffad] hover:text-black ${item.status === true ? 'cta-green atlas-cta': ''} hover:no-underline font-semibold tracking-wide px-4 py-2 border border-gray-600`}
+              >
+                {item.name}
+              </Link>
+              })}
+
             </div>
           </header>
           <h1
