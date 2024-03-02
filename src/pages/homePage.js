@@ -50,6 +50,8 @@ const HomePage = () => {
 
             <div className='flex space-x-3 justify-center w-full items-center px-7 py-3'>
 
+              <img src="img/logo.png" alt="logo"/>
+
               {pages.map((item, index)=>{
                 return <Link
                 key={index} 
