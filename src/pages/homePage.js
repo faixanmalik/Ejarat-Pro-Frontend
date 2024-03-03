@@ -12,13 +12,18 @@ const HomePage = () => {
   }, []);
 
   const pages = [
-    { name: 'Features', href: '/features' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'Log In', href: '/login', status: true },
-    { name: 'Join Us', href: '/joinUs', status: true },
-    { name: 'Arabic', href: '/arabic' },
+    { id: 'feature-section', name: 'Features', href: '/features' },
+    { id: 'pricing-section', name: 'Pricing', href: '/pricing' },
+    { id: 'contact-section', name: 'Contact Us', href: '/contact' },
+    { id: 'login-section', name: 'Log In', href: '/login', status: true },
+    { id: 'join-section', name: 'Join Us', href: '/joinUs', status: true },
+    { id: 'arabic-section', name: 'Arabic', href: '/arabic' },
   ]
+
+  const scrolltoHash = function (element_id) {
+    const element = document.getElementById(element_id)
+    element?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  }
 
   return (
     <>
@@ -38,7 +43,7 @@ const HomePage = () => {
     </Head>
 
 
-    <div>
+    <div className='bg-white'>
 
       <div
         className="jumbotron jumbotron-fluid px-16"
@@ -53,13 +58,13 @@ const HomePage = () => {
               <img src="img/logo.png" alt="logo"/>
 
               {pages.map((item, index)=>{
-                return <Link
-                  key={index} 
-                  href={item.href}
+                return <div
+                  key={index}
+                  onClick={() => scrolltoHash(item.id)}
                   className={`rounded-2xl hover:bg-[#00ffad] text-white hover:text-black ${item.status === true ? 'atlas-cta': ''} hover:no-underline font-semibold tracking-wide px-4 py-2 border border-gray-600`}
                 >
                   {item.name}
-                </Link>
+                </div>
               })}
             </div>
           </header>
@@ -79,7 +84,7 @@ const HomePage = () => {
             data-aos-easing="linear"
             data-aos-duration={1000}
             data-aos-once="true"
-            className="lead text-white my-2 tracking-tight text-lg"
+            className="lead text-white w-10/12 my-2 tracking-tight text-lg"
           >
             Whether you are a real estate owner or an office to manage the real estate of others, you can easily start working on the system and ensure that your real estate is managed in an optimal way
           </p>
@@ -97,7 +102,7 @@ const HomePage = () => {
       </div>
 
 
-      <div className="container bg-white text-black py-16">
+      <div id='feature-section' className="container bg-white text-black py-16">
         <h2 className="text-center font-weight-bold my-5">
         Main Features
         </h2>
@@ -218,7 +223,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="container px-14 bg-white text-black py-9" id="price-table">
+      <div id='pricing-section' className="container px-14 bg-white text-black my-9">
         <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
           Check our pricing
         </h2>
@@ -289,7 +294,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="jumbotron px-10 jumbotron-fluid">
+      <div className="jumbotron px-10 py-4 jumbotron-fluid">
         <div className="container">
           <div className="row">
             <div className="col-sm-4 col-md-2 py-2 align-self-center">
@@ -316,7 +321,7 @@ const HomePage = () => {
 
       <div
         className="jumbotron px-16 jumbotron-fluid"
-        id="contact"
+        id='contact-section'
         style={{ backgroundImage: "url(img/contact-bk.jpg)" }}
       >
         <div className="container my-5">
@@ -365,7 +370,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid" id="copyright">
+      <div className="jumbotron jumbotron-fluid py-2" id="copyright">
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-md-6 text-white align-self-center text-center text-md-left my-2">
