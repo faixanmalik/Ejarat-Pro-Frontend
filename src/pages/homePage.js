@@ -57,11 +57,10 @@ const HomePage = () => {
                   key={index} 
                   href={item.href}
                   className={`rounded-2xl hover:bg-[#00ffad] text-white hover:text-black ${item.status === true ? 'atlas-cta': ''} hover:no-underline font-semibold tracking-wide px-4 py-2 border border-gray-600`}
-              >
-                {item.name}
-              </Link>
+                >
+                  {item.name}
+                </Link>
               })}
-
             </div>
           </header>
           <h1
@@ -71,7 +70,7 @@ const HomePage = () => {
             data-aos-once="true"
             className="display-3 text-white font-weight-bold mt-5"
           >
-            <span className='text-7xl'>Welcome to EjaratPro</span>
+            <span className='text-7xl'>Welcome to Ejarat<span className='text-[#00ffad]'>Pro</span></span>
             <br />
             <span className='text-3xl'>Professional way to manage your Property</span>
           </h1>
