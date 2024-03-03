@@ -55,7 +55,7 @@ const HomePage = () => {
 
             <div className='flex space-x-3 justify-center w-full items-center px-7 py-3'>
 
-              <img src="img/logo.png" alt="logo"/>
+              <img className='mr-3' src="img/logo2.png" alt="logo"/>
 
               {pages.map((item, index)=>{
                 return <div
@@ -370,6 +370,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
       <div className="jumbotron jumbotron-fluid py-2" id="copyright">
         <div className="container">
           <div className="row justify-content-between">
@@ -396,6 +397,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
     </div>
 
     <Script src="js/aos.js"></Script>
