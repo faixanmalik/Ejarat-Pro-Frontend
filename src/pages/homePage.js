@@ -54,9 +54,9 @@ const HomePage = () => {
 
               {pages.map((item, index)=>{
                 return <Link
-                key={index} 
-                href={item.href}
-                className={`rounded-2xl hover:bg-[#00ffad] hover:text-black ${item.status === true ? 'cta-green atlas-cta': ''} hover:no-underline font-semibold tracking-wide px-4 py-2 border border-gray-600`}
+                  key={index} 
+                  href={item.href}
+                  className={`rounded-2xl hover:bg-[#00ffad] text-white hover:text-black ${item.status === true ? 'atlas-cta': ''} hover:no-underline font-semibold tracking-wide px-4 py-2 border border-gray-600`}
               >
                 {item.name}
               </Link>
