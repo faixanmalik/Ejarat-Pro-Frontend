@@ -25,6 +25,27 @@ const HomePage = () => {
     element?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   }
 
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://164.90.138.198/api/website/packages');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setPackages(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  
+  
+
   return (
     <>
     <Head>
@@ -42,9 +63,7 @@ const HomePage = () => {
       <link rel="stylesheet" href="css/aos.css" />
     </Head>
 
-
     <div className='bg-white'>
-
       <div
         className="jumbotron jumbotron-fluid px-16"
         id="banner"
@@ -52,11 +71,8 @@ const HomePage = () => {
       >
         <div className="container text-center text-md-left">
           <header>
-
             <div className='flex space-x-3 justify-center w-full items-center px-7 py-3'>
-
               <img className='mr-3' src="img/logo2.png" alt="logo"/>
-
               {pages.map((item, index)=>{
                 return <div
                   key={index}
@@ -223,74 +239,35 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div id='pricing-section' className="container px-14 bg-white text-black my-9">
+      <div id='pricing-section' className="container px-40 bg-white text-black my-9">
         <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
           Check our pricing
         </h2>
-        <div className="row font-semibold">
-          <div
-            data-aos="fade-right"
-            data-aos-delay={200}
-            data-aos-duration={1000}
-            data-aos-once="true"
-            className="col-md-4 text-center py-4 mt-5"
-          >
-            <h4 className="my-4 text-2xl">STARTUP</h4>
-            <p className="font-weight-bold">
-              $ <span className="display-2 font-weight-bold">0</span> / MO.
-            </p>
-            <ul className="list-unstyled flex-col space-y-1 mt-3">
-              <li>Up to 5 Documents</li>
-              <li>Up to 3 Reviews</li>
-              <li>5 team Members</li>
-              <li>Limited Support</li>
-            </ul>
-            <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-ghost">
-              Get Free
-            </a>
-          </div>
-          <div
-            data-aos="fade-up"
-            data-aos-duration={1000}
-            data-aos-once="true"
-            className="col-md-4 h-[30rem] text-center py-4 mt-5 rounded"
-            id="price-table__premium"
-          >
-            <h4 className="my-4 text-2xl">PREMIUM</h4>
-            <p className="font-weight-bold">
-              $ <span className="display-2 font-weight-bold">10</span> / MO.
-            </p>
-            <ul className="list-unstyled flex-col space-y-1 mt-3">
-              <li>Up to 15 Documents</li>
-              <li>Up to 10 Reviews</li>
-              <li>25 team Members</li>
-              <li>Limited Support</li>
-            </ul>
-            <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-green">
-              Get Free
-            </a>
-          </div>
-          <div
-            data-aos="fade-left"
-            data-aos-delay={200}
-            data-aos-duration={1000}
-            data-aos-once="true"
-            className="col-md-4 text-center py-4 mt-5"
-          >
-            <h4 className="my-4 text-2xl">PROFESSIONAL</h4>
-            <p className="font-weight-bold">
-              $ <span className="display-2 font-weight-bold">30</span> / MO.
-            </p>
-            <ul className="list-unstyled flex-col space-y-1 mt-3">
-              <li>Unlimited Documents</li>
-              <li>Unlimited Reviews</li>
-              <li>Unlimited Members</li>
-              <li>Unlimited Support</li>
-            </ul>
-            <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-ghost">
-              Get Free
-            </a>
-          </div>
+        <div className="flex justify-center mx-auto font-semibold">
+          {packages.map((item, index)=>{
+            console.log(item)
+            return <div
+              key={index}
+              data-aos="fade-right"
+              data-aos-delay={200}
+              data-aos-duration={1000}
+              data-aos-once="true"
+              className="text-left py-4 mt-5"
+            >
+              <h4 className="my-4 text-2xl">{item.nameEn}</h4>
+              <p className="font-weight-bold">
+                $ <span className="display-2 font-weight-bold">{item.cost}</span> / MO.
+              </p>
+              <ul className="w-full">
+                {item.descriptionEn.map((descItem, index)=>{
+                  return <li key={index} className=''>{descItem}</li>
+                })}
+              </ul>
+              <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-ghost">
+                Get Free
+              </a>
+            </div>
+          })}
         </div>
       </div>
 
