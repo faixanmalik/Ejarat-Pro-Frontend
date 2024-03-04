@@ -26,6 +26,28 @@ const HomePage = () => {
   }
 
   const [packages, setPackages] = useState([]);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [mobile, setMobile] = useState('')
+  const [message, setMessage] = useState('')
+
+
+  // mobile error response in api
+  const submit = async(e)=>{
+    e.preventDefault();
+
+    const data = { guestName:name, mobile, email, message }
+
+    let res = await fetch("http://164.90.138.198/api/website/guestMsg", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    let response = await res.json()
+    console.log(response)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -245,7 +267,6 @@ const HomePage = () => {
         </h2>
         <div className="flex justify-center mx-auto font-semibold">
           {packages.map((item, index)=>{
-            console.log(item)
             return <div
               key={index}
               data-aos="fade-right"
@@ -260,8 +281,8 @@ const HomePage = () => {
               </p>
 
               <ul className='mt-3 w-8/12 mx-auto'>
-                {item.descriptionEn.map((descItem)=>{
-                  return <li className='text-center tracking-tight'>{descItem}</li>
+                {item.descriptionEn.map((descItem, index)=>{
+                  return <li key={index} className='text-center tracking-tight'>{descItem}</li>
                 })}
               </ul>
               
@@ -318,15 +339,20 @@ const HomePage = () => {
               </ul>
             </div>
             <div className="col-md-6">
-              <form>
+              <form method='POST' onSubmit={(e)=>submit(e)}>
                 <div className="row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Your Name</label>
-                    <input type="name" className="form-control" id="name" />
+                    <input value={name} onChange={(e)=>{setName(e.target.value)}} name='name' type="name" className="form-control" id="name" />
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="Email">Your Email</label>
-                    <input type="email" className="form-control" id="Email" />
+                    <input value={email} onChange={(e)=>{setEmail(e.target.value)}} name='email' type="email" className="form-control" id="Email" />
+                  </div>
+
+                  <div className="form-group col-md-8">
+                    <label htmlFor="Mobile">Your Mobile</label>
+                    <input value={mobile} onChange={(e)=>{setMobile(e.target.value)}} name='mobile' type="number" className="form-control" id="Email" />
                   </div>
                 </div>
                 <div className="form-group">
@@ -334,8 +360,10 @@ const HomePage = () => {
                   <textarea
                     className="form-control"
                     id="message"
+                    name='message'
                     rows={3}
-                    defaultValue={""}
+                    value={message} 
+                    onChange={(e)=>{setMessage(e.target.value)}} 
                   />
                 </div>
                 <button
