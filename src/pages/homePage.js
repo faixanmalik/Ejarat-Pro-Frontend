@@ -239,7 +239,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div id='pricing-section' className="container px-40 bg-white text-black my-9">
+      <div id='pricing-section' className="container px-14 bg-white text-black my-9">
         <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
           Check our pricing
         </h2>
@@ -252,20 +252,22 @@ const HomePage = () => {
               data-aos-delay={200}
               data-aos-duration={1000}
               data-aos-once="true"
-              className="text-left py-4 mt-5"
+              className={`text-left ${item.nameEn === 'Gold' && 'bg-[#192440] text-white'} py-4 rounded-xl w-full flex-col justify-center mt-5`}
             >
-              <h4 className="my-4 text-2xl">{item.nameEn}</h4>
-              <p className="font-weight-bold">
-                $ <span className="display-2 font-weight-bold">{item.cost}</span> / MO.
+              <h4 className="my-4 text-center text-2xl">{item.nameEn}</h4>
+              <p className="font-weight-bold text-center">
+                $ <span className="text-6xl w-full font-weight-bold">{item.cost}</span> / MO.
               </p>
-              <ul className="w-full">
-                {item.descriptionEn.map((descItem, index)=>{
-                  return <li key={index} className=''>{descItem}</li>
+
+              <ul className='mt-3 w-8/12 mx-auto'>
+                {item.descriptionEn.map((descItem)=>{
+                  return <li className='text-center tracking-tight'>{descItem}</li>
                 })}
               </ul>
-              <a href="#" className="btn my-4 font-weight-bold atlas-cta cta-ghost">
+              
+              <button className={`mx-auto ${item.nameEn === 'Gold' && ' bg-[#00ffad]  hover:bg-[#00ffad] hover:text-white'} mt-4 flex justify-between border-2 font-weight-bold atlas-cta cta-ghost border-black rounded-3xl px-5 py-2`}>
                 Get Free
-              </a>
+              </button>
             </div>
           })}
         </div>
