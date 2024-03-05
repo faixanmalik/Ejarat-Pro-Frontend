@@ -1,8 +1,10 @@
-import { React, useEffect, useState } from 'react';
+import { React, Fragment, useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import AOS from "aos";
 import Link from 'next/link';
+import { Dialog, Transition } from '@headlessui/react'
+import { IoCloseSharp } from "react-icons/io5";
 
 const HomePage = () => {
 
@@ -28,6 +30,7 @@ const HomePage = () => {
   const [packages, setPackages] = useState([]);
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [businessName, setBusinessName] = useState('')
   const [mobile, setMobile] = useState('')
   const [message, setMessage] = useState('')
 
@@ -36,7 +39,7 @@ const HomePage = () => {
   const submit = async(e)=>{
     e.preventDefault();
 
-    const data = { guestName:name, mobile, email, message }
+    const data = { guestName:name, contactNumber:mobile, message }
 
     let res = await fetch("http://164.90.138.198/api/website/guestMsg", {
       method: "POST",
@@ -66,6 +69,27 @@ const HomePage = () => {
     fetchData();
   }, []);
   
+
+  const [openDemoModal, setOpenDemoModal] = useState(false)
+  const cancelButtonRef = useRef(null)
+
+
+  const requestDemo = async(e)=>{
+    e.preventDefault();
+
+    const data = { guestName:name, guestEmail:email, contactNumber:mobile, message }
+
+    let res = await fetch("http://164.90.138.198/api/website/requestDemo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    let response = await res.json()
+    console.log(response)
+
+  }
   
 
   return (
@@ -94,7 +118,7 @@ const HomePage = () => {
         <div className="container text-center text-md-left">
           <header>
             <div className='flex space-x-3 justify-center w-full items-center px-7 py-3'>
-              <img className='mr-3' src="img/logo2.png" alt="logo"/>
+              {/* <img className='mr-3' src="img/logo2.png" alt="logo"/> */}
               {pages.map((item, index)=>{
                 return <div
                   key={index}
@@ -126,19 +150,18 @@ const HomePage = () => {
           >
             Whether you are a real estate owner or an office to manage the real estate of others, you can easily start working on the system and ensure that your real estate is managed in an optimal way
           </p>
-          <a
-            href="#"
+          <button
+            onClick={() => setOpenDemoModal(true)}
             data-aos="fade"
             data-aos-easing="linear"
             data-aos-duration={1000}
             data-aos-once="true"
             className="btn my-4 font-weight-bold atlas-cta cta-green"
           >
-            Get Started
-          </a>
+            Request Demo
+          </button>
         </div>
       </div>
-
 
       <div id='feature-section' className="container bg-white text-black py-16">
         <h2 className="text-center font-weight-bold my-5">
@@ -294,31 +317,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="jumbotron px-10 py-4 jumbotron-fluid">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-4 col-md-2 py-2 align-self-center">
-              <img src="img/client-1.png" className="mx-auto d-block" />
-            </div>
-            <div className="col-sm-4 col-md-2 py-2 align-self-center">
-              <img src="img/client-2.png" className="mx-auto d-block" />
-            </div>
-            <div className="col-sm-4 col-md-2 py-2 align-self-center">
-              <img src="img/client-3.png" className="mx-auto d-block" />
-            </div>
-            <div className="col-sm-4 col-md-2 py-2 align-self-center">
-              <img src="img/client-4.png" className="mx-auto d-block" />
-            </div>
-            <div className="col-sm-4 col-md-2 py-2 align-self-center">
-              <img src="img/client-5.png" className="mx-auto d-block" />
-            </div>
-            <div className="col-sm-4 col-md-2 py-2 align-self-center">
-              <img src="img/client-6.png" className="mx-auto d-block" />
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div
         className="jumbotron px-16 jumbotron-fluid"
         id='contact-section'
@@ -334,7 +332,7 @@ const HomePage = () => {
               </p>
               <ul className="list-unstyled">
                 <li>Email : Ejaratpro@gmail.com</li>
-                <li>Phone : 0553114030</li>
+                <li>Phone : +971-0553114030</li>
                 <li>Address : Ajman</li>
               </ul>
             </div>
@@ -342,16 +340,12 @@ const HomePage = () => {
               <form method='POST' onSubmit={(e)=>submit(e)}>
                 <div className="row">
                   <div className="form-group col-md-6">
-                    <label htmlFor="name">Your Name</label>
+                    <label htmlFor="name">Full Name</label>
                     <input value={name} onChange={(e)=>{setName(e.target.value)}} name='name' type="name" className="form-control" id="name" />
                   </div>
-                  <div className="form-group col-md-6">
-                    <label htmlFor="Email">Your Email</label>
-                    <input value={email} onChange={(e)=>{setEmail(e.target.value)}} name='email' type="email" className="form-control" id="Email" />
-                  </div>
 
-                  <div className="form-group col-md-8">
-                    <label htmlFor="Mobile">Your Mobile</label>
+                  <div className="form-group col-md-6">
+                    <label htmlFor="Mobile">Mobile Number</label>
                     <input value={mobile} onChange={(e)=>{setMobile(e.target.value)}} name='mobile' type="number" className="form-control" id="Email" />
                   </div>
                 </div>
@@ -382,7 +376,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-md-6 text-white align-self-center text-center text-md-left my-2">
-              Copyright © 2018 Chen, Yi-Ya.
+              Copyright © 2024 Ejarat Pro.
             </div>
             <div
               className="col-md-6 align-self-center text-center text-md-right my-2"
@@ -406,6 +400,91 @@ const HomePage = () => {
       </div>
 
     </div>
+
+    <Transition.Root show={openDemoModal} as={Fragment}>
+      <Dialog as="div" className="relative z-20" initialFocus={cancelButtonRef} onClose={setOpenDemoModal}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        </Transition.Child>
+
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <Dialog.Panel className="flex-col h-[31rem] md:h-auto relative transform rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-2xl">
+
+                <div className="bg-white text-black px-4 py-4 sm:pb-4">
+                  
+                  <div className='flex space-x-3 w-full'>
+                    <div className="form-group w-full">
+                      <label htmlFor="name" className=''>Full Name</label>
+                      <input placeholder='John Doe' value={name} onChange={(e)=>{setName(e.target.value)}} name='name' type="name" className="placeholder:text-sm form-control rounded-md" id="name" />
+                    </div>
+                    <div className="form-group w-full">
+                      <label htmlFor="name">Business Name</label>
+                      <input placeholder='xyz Pvt.Ltd' value={businessName} onChange={(e)=>{setBusinessName(e.target.value)}} name='name' type="name" className="placeholder:text-sm form-control rounded-md" id="name" />
+                    </div>
+                  </div>
+                  <div className='flex space-x-3 w-full'>
+                    <div className="form-group w-full">
+                      <label htmlFor="email" className=''>Email</label>
+                      <input placeholder='abc@example.com' value={email} onChange={(e)=>{setEmail(e.target.value)}} name='email' type="email" className="placeholder:text-sm form-control rounded-md" id="email" />
+                    </div>
+                    <div className="form-group w-full">
+                      <label htmlFor="name">Mobile</label>
+                      <input placeholder='+971-xxxxxxxxx' value={mobile} onChange={(e)=>{setMobile(e.target.value)}} name='mobile' type="number" className="placeholder:text-sm form-control rounded-md" id="mobile" />
+                    </div>
+                  </div>
+                 
+                </div>
+                
+                
+                <div className="bg-gray-100 w-full">
+                  <div className="flex justify-end space-x-3 px-4 py-3 sm:px-6">
+                    <button
+                      onClick={() => setOpenDemoModal(false)}
+                      data-aos="fade"
+                      data-aos-easing="linear"
+                      data-aos-duration={1000}
+                      data-aos-once="true"
+                      className="px-3 py-1 font-bold hover:bg-black hover:text-white rounded-xl text-black border border-gray-800"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={(e) => requestDemo(e)}
+                      data-aos="fade"
+                      data-aos-easing="linear"
+                      data-aos-duration={1000}
+                      data-aos-once="true"
+                      className="px-4 py-1 font-bold rounded-xl cta-green"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </div>
+      </Dialog>
+    </Transition.Root>
 
     <Script src="js/aos.js"></Script>
   
