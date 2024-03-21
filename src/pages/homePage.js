@@ -307,7 +307,7 @@ const HomePage = () => {
       </div>
 
 
-      <div className='px-0 md:px-14 my-9 bg-white text-black'>
+      <div className='px-0 md:px-10 lg:px-14 my-9 bg-white text-black'>
 
         <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
           FAQS
@@ -316,12 +316,14 @@ const HomePage = () => {
           return <div key={index} onClick={()=> setAccordationIndex(index)} className="relative mb-3 text-black">
           <h6 className="mb-0">
             <button
-              className="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group"
+              className="relative flex justify-between items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group"
               data-collapse-target="collapse-1"
             >
               <span>{item.heading}</span>
-              <i className="absolute right-0 pt-1 text-xs fa fa-plus group-open:opacity-0"></i>
-              <i className="absolute right-0 pt-1 text-xs opacity-0 fa fa-minus group-open:opacity-100"></i>
+              {accordationIndex != index 
+                ? <i className="pt-1 text-xs fa fa-plus"></i>
+                : <i className="pt-1 text-xs fa fa-minus"></i>
+              }
             </button>
           </h6>
           {accordationIndex === index && <div
@@ -342,7 +344,7 @@ const HomePage = () => {
         <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
           Check our pricing
         </h2>
-        <div className="flex justify-center mx-auto font-semibold">
+        <div className="flex flex-col lg:flex-row justify-center mx-auto font-semibold">
           {packages.map((item, index)=>{
             return <div
               key={index}
