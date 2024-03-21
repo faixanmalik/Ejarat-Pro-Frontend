@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { Dialog, Transition } from '@headlessui/react'
 import { IoCloseSharp } from "react-icons/io5";
 
+// import { toast, ToastContainer } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
+
 const HomePage = () => {
 
   useEffect(() => {
@@ -50,6 +53,12 @@ const HomePage = () => {
     })
     let response = await res.json()
     console.log(response)
+    if(response){
+
+    }
+    else{
+      // toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+    }
   }
 
   useEffect(() => {
@@ -88,9 +97,19 @@ const HomePage = () => {
     })
     let response = await res.json()
     console.log(response)
+    
 
   }
   
+
+  const [accordationIndex, setAccordationIndex] = useState(0)
+  let accordation = [
+    {heading: 'Whats ejaratpro', paragraph:'Ejaratpro is a software as aservice help propert manager to organize there work , track rent contract and folow payment collection in an easy way'},
+    {heading: 'what is the main features', paragraph:'Ejart pro is an easy way to manage property renting , add cleint , generate and save contract , renew and terminate contract , as well give you super power over cheques management'},
+    {heading: 'How to subscribe', paragraph:'Simply you can subscribe through our website by adding your information and pay the monthly subscription'},
+    {heading: 'How pricing is calculated', paragraph:'Ejaratpro calculate monthly bill depend in the number of unit the cleint managed , this provide reasonable pricing scheme and distribute resource consumption fairly'},
+    {heading: 'Is it easy to convert to ejaratpro', paragraph:'If you are new you can simply add your business information and start , the softwaare is prepackaged with main data , if you are running business you need to prepare your data and simply import it to ejaratpro'}
+  ]
 
   return (
     <>
@@ -108,6 +127,9 @@ const HomePage = () => {
       <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
       <link rel="stylesheet" href="css/aos.css" />
     </Head>
+
+    {/* React tostify */}
+    {/* <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/> */}
 
     <div className='bg-white'>
       <div
@@ -283,6 +305,38 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+
+      <div className='px-0 md:px-14 my-9 bg-white text-black'>
+
+        <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
+          FAQS
+        </h2>
+        {accordation.map((item, index)=>{
+          return <div key={index} onClick={()=> setAccordationIndex(index)} className="relative mb-3 text-black">
+          <h6 className="mb-0">
+            <button
+              className="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group"
+              data-collapse-target="collapse-1"
+            >
+              <span>{item.heading}</span>
+              <i className="absolute right-0 pt-1 text-xs fa fa-plus group-open:opacity-0"></i>
+              <i className="absolute right-0 pt-1 text-xs opacity-0 fa fa-minus group-open:opacity-100"></i>
+            </button>
+          </h6>
+          {accordationIndex === index && <div
+            data-collapse="collapse-1"
+            className="overflow-hidden transition-all duration-300 ease-in-out"
+          >
+            <div className="p-4 text-sm leading-normal text-blue-gray-500/80">
+              {item.paragraph}
+            </div>
+          </div>}
+        </div>})}
+      </div>
+
+      
+
 
       <div id='pricing-section' className="container px-14 bg-white text-black my-9">
         <h2 className="text-center font-weight-bold d-block mb-3 mt-5">
