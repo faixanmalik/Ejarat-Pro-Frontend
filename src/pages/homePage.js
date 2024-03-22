@@ -152,23 +152,36 @@ const HomePage = () => {
               })}
             </div>
           </header>
-          <h1
-            data-aos="fade"
-            data-aos-easing="linear"
-            data-aos-duration={1000}
-            data-aos-once="true"
-            className="display-3 text-white font-weight-bold mt-5"
-          >
-            <span className='text-7xl'>Welcome to Ejarat<span className='text-[#00ffad]'>Pro</span></span>
-            <br />
-            <span className='text-3xl'>Professional way to manage your Property</span>
-          </h1>
+
+          <div>
+            <h1 
+              data-aos="fade"
+              data-aos-easing="linear"
+              data-aos-duration={1000}
+              data-aos-once="true"
+              className="display-3 text-white font-bold mt-5"
+            >
+              Welcome to Ejarat<span className='text-[#00ffad]'>Pro</span>
+            </h1>
+
+            <h3
+              data-aos="fade"
+              data-aos-easing="linear"
+              data-aos-duration={1000}
+              data-aos-once="true"
+              className="text-xl md:text-3xl leading-none text-white font-bold mt-[2rem] md:mt-[1rem]"
+            >
+              Professional way to manage your Property
+            </h3>
+            
+          </div>
+
           <p
             data-aos="fade"
             data-aos-easing="linear"
             data-aos-duration={1000}
             data-aos-once="true"
-            className="lead text-white w-10/12 my-2 tracking-tight text-lg"
+            className="lead text-white w-full md:w-10/12 my-4 tracking-tight text-lg"
           >
             Whether you are a real estate owner or an office to manage the real estate of others, you can easily start working on the system and ensure that your real estate is managed in an optimal way
           </p>
