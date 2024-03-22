@@ -133,14 +133,13 @@ const HomePage = () => {
 
     <div className='bg-white'>
       <div
-        className="jumbotron jumbotron-fluid px-16"
+        className="jumbotron jumbotron-fluid px-4"
         id="banner"
         style={{ backgroundImage: "url(img/banner-bk.jpg)" }}
       >
-        <div className="container text-center text-md-left">
+        <div className="container w-full text-center text-md-left">
           <header>
             <div className='flex space-x-3 justify-center w-full items-center px-7 py-3'>
-              {/* <img className='mr-3' src="img/logo2.png" alt="logo"/> */}
               {pages.map((item, index)=>{
                 return <div
                   key={index}
@@ -197,6 +196,8 @@ const HomePage = () => {
           </button>
         </div>
       </div>
+
+      
 
       <div id='feature-section' className="container bg-white text-black py-16">
         <h2 className="text-center font-weight-bold my-5">
