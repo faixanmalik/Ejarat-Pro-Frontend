@@ -379,14 +379,31 @@ const HomePage = () => {
         style={{ backgroundImage: "url(img/contact-bk.jpg)" }}
       >
         <div className="container my-5">
-          <div className="row justify-content-between">
-            <div className="col-md-6 text-white">
-              <h2 className="font-weight-bold">Contact Us</h2>
-              <p className="my-3 tracking-tight">
-                We are ere to help to manage your property and organize your work , 
-                <br /> contact us and we are ready to help you.
-              </p>
-              <ul className="list-unstyled">
+          
+          <div className='block md:hidden pb-5'>
+            <h2 className="font-weight-bold text-center">Contact Us</h2>
+            <p className="my-3 tracking-tight text-center">
+              We are ere to help to manage your property and organize your work , 
+              <br /> contact us and we are ready to help you.
+            </p>
+          </div>
+
+          <div className="flex flex-col-reverse md:flex-row w-full">
+            <div className="col-md-6 mt-3 text-white">
+
+              <div className='hidden md:block'>
+                <h2 className="font-weight-bold">Contact Us</h2>
+                <p className="my-3 tracking-tight">
+                  We are ere to help to manage your property and organize your work , 
+                  <br /> contact us and we are ready to help you.
+                </p>
+              </div>
+              <ul className="list-unstyled text-center block md:hidden">
+                <li>Email : Ejaratpro@gmail.com</li>
+                <li>Phone : +971-0553114030</li>
+                <li>Address : Ajman</li>
+              </ul>
+              <ul className="list-unstyled hidden md:block">
                 <li>Email : Ejaratpro@gmail.com</li>
                 <li>Phone : +971-0553114030</li>
                 <li>Address : Ajman</li>
